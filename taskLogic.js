@@ -14,9 +14,21 @@ function addTask(tasks, text) {
   return [...tasks, { id, text, completed: false }];
 }
 
+/**
+ * Toggle a task's completed status.
+ * @param {Array}  tasks – current task array (not mutated)
+ * @param {number} id    – id of the task to toggle
+ * @returns {Array}       – new array with the toggled task
+ */
+function toggleTask(tasks, id) {
+  return tasks.map((task) =>
+    task.id === id ? { ...task, completed: !task.completed } : task
+  );
+}
+
 // Dual export: Node (module.exports) / Browser (window)
 if (typeof module !== "undefined" && module.exports) {
-  module.exports = { addTask };
+  module.exports = { addTask, toggleTask };
 } else {
-  window.TaskLogic = { addTask };
+  window.TaskLogic = { addTask, toggleTask };
 }
