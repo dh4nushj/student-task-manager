@@ -1,0 +1,10 @@
+{
+  "name": "student-task-manager",
+  "version": "1.0.0",
+  "description": "A lightweight task manager built for students to organise assignments, deadlines, and study goals.",
+  "scripts": {
+    "test": "node --test tests/"
+  },
+  "keywords": ["task-manager", "students", "vanilla-js"],
+  "license": "MIT"
+}

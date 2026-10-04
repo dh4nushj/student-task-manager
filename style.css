@@ -1,0 +1,291 @@
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
+:root {
+  /* palette */
+  --clr-bg: #0f0f1a;
+  --clr-surface: rgba(255, 255, 255, 0.04);
+  --clr-surface-hover: rgba(255, 255, 255, 0.07);
+  --clr-border: rgba(255, 255, 255, 0.08);
+  --clr-text: #e4e4ef;
+  --clr-text-muted: #8888a4;
+  --clr-accent: #7c6aff;
+  --clr-accent-glow: rgba(124, 106, 255, 0.35);
+  --clr-accent-hover: #9484ff;
+  --clr-blob-1: rgba(124, 106, 255, 0.15);
+  --clr-blob-2: rgba(255, 106, 198, 0.12);
+
+  /* typography */
+  --ff: "Inter", system-ui, -apple-system, sans-serif;
+
+  /* radii */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+
+  /* transitions */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--ff);
+  background: var(--clr-bg);
+  color: var(--clr-text);
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* ============================================================
+   BACKGROUND BLOBS
+   ============================================================ */
+.app-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 540px;
+  padding: 24px;
+}
+
+.blob {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.blob--1 {
+  width: 420px;
+  height: 420px;
+  background: var(--clr-blob-1);
+  top: -10%;
+  left: -8%;
+  animation: float 14s ease-in-out infinite alternate;
+}
+
+.blob--2 {
+  width: 340px;
+  height: 340px;
+  background: var(--clr-blob-2);
+  bottom: -8%;
+  right: -6%;
+  animation: float 18s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes float {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(30px, -40px) scale(1.12);
+  }
+}
+
+/* ============================================================
+   CARD (MAIN CONTAINER)
+   ============================================================ */
+.card {
+  position: relative;
+  z-index: 1;
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: 36px 32px 32px;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+}
+
+.card__header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.card__title {
+  font-size: 1.55rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.card__icon {
+  font-size: 1.4rem;
+}
+
+.card__subtitle {
+  margin-top: 6px;
+  font-size: 0.88rem;
+  color: var(--clr-text-muted);
+  font-weight: 400;
+}
+
+/* ============================================================
+   FORM
+   ============================================================ */
+.task-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.task-form__input {
+  flex: 1;
+  padding: 12px 16px;
+  font-size: 0.92rem;
+  font-family: var(--ff);
+  color: var(--clr-text);
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-sm);
+  outline: none;
+  transition: border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+
+.task-form__input::placeholder {
+  color: var(--clr-text-muted);
+}
+
+.task-form__input:focus {
+  border-color: var(--clr-accent);
+  box-shadow: 0 0 0 3px var(--clr-accent-glow);
+}
+
+.task-form__btn {
+  padding: 12px 22px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--clr-accent);
+  border: none;
+  border-radius: var(--radius-sm);
+  transition: background 0.2s var(--ease), transform 0.15s var(--ease),
+    box-shadow 0.2s var(--ease);
+}
+
+.task-form__btn:hover {
+  background: var(--clr-accent-hover);
+  box-shadow: 0 4px 18px var(--clr-accent-glow);
+}
+
+.task-form__btn:active {
+  transform: scale(0.96);
+}
+
+/* ============================================================
+   TASK LIST
+   ============================================================ */
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  transition: background 0.2s var(--ease), transform 0.2s var(--ease);
+  animation: slideIn 0.35s var(--ease) both;
+}
+
+.task-item:hover {
+  background: var(--clr-surface-hover);
+  transform: translateX(4px);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.task-item__indicator {
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--clr-accent);
+  box-shadow: 0 0 8px var(--clr-accent-glow);
+}
+
+.task-item__text {
+  font-size: 0.94rem;
+  font-weight: 500;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+/* ============================================================
+   EMPTY STATE
+   ============================================================ */
+.empty-state {
+  text-align: center;
+  color: var(--clr-text-muted);
+  font-size: 0.9rem;
+  padding: 24px 0 8px;
+}
+
+.empty-state--hidden {
+  display: none;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 480px) {
+  .app-wrapper {
+    padding: 16px;
+  }
+
+  .card {
+    padding: 28px 20px 24px;
+    border-radius: var(--radius-md);
+  }
+
+  .card__title {
+    font-size: 1.3rem;
+  }
+
+  .task-form {
+    flex-direction: column;
+  }
+
+  .task-form__btn {
+    width: 100%;
+  }
+}

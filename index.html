@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A lightweight task manager built for students to organise assignments, deadlines, and study goals."
+    />
+    <title>Student Task Manager</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-wrapper">
+      <!-- Decorative blobs -->
+      <div class="blob blob--1" aria-hidden="true"></div>
+      <div class="blob blob--2" aria-hidden="true"></div>
+
+      <main class="card">
+        <header class="card__header">
+          <h1 class="card__title">
+            <span class="card__icon" aria-hidden="true">📋</span>
+            Student Task Manager
+          </h1>
+          <p class="card__subtitle">Stay on top of your study goals</p>
+        </header>
+
+        <form id="task-form" class="task-form" autocomplete="off">
+          <input
+            id="task-input"
+            class="task-form__input"
+            type="text"
+            placeholder="e.g. Finish calculus homework…"
+            aria-label="New task description"
+          />
+          <button id="task-submit" class="task-form__btn" type="submit">
+            Add Task
+          </button>
+        </form>
+
+        <section aria-label="Task list">
+          <ul id="task-list" class="task-list"></ul>
+          <p id="empty-state" class="empty-state">
+            No tasks yet — add one above! 🚀
+          </p>
+        </section>
+      </main>
+    </div>
+
+    <script src="taskLogic.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
