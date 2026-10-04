@@ -3,7 +3,7 @@
 (function () {
   "use strict";
 
-  const { addTask } = window.TaskLogic;
+  const { addTask, toggleTask } = window.TaskLogic;
 
   // State
   let tasks = [];
@@ -22,13 +22,18 @@
 
     tasks.forEach((task) => {
       const li = document.createElement("li");
-      li.className = "task-item";
+      li.className = "task-item" + (task.completed ? " completed" : "");
       li.dataset.id = task.id;
 
       li.innerHTML = `
         <span class="task-item__indicator" aria-hidden="true"></span>
         <span class="task-item__text">${escapeHTML(task.text)}</span>
       `;
+
+      li.addEventListener("click", () => {
+        tasks = toggleTask(tasks, task.id);
+        render();
+      });
 
       list.appendChild(li);
     });

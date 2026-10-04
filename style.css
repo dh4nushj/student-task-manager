@@ -248,6 +248,22 @@ button {
   font-weight: 500;
   line-height: 1.4;
   word-break: break-word;
+  transition: opacity 0.25s var(--ease);
+}
+
+/* completed state */
+.task-item.completed {
+  opacity: 0.45;
+  cursor: pointer;
+}
+
+.task-item.completed .task-item__text {
+  text-decoration: line-through;
+}
+
+.task-item.completed .task-item__indicator {
+  background: var(--clr-text-muted);
+  box-shadow: none;
 }
 
 /* ============================================================

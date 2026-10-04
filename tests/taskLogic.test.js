@@ -1,6 +1,6 @@
 const { describe, it } = require("node:test");
 const assert = require("node:assert/strict");
-const { addTask } = require("../taskLogic");
+const { addTask, toggleTask } = require("../taskLogic");
 
 describe("addTask", () => {
   it("should return a new array with one task when starting from an empty list", () => {
@@ -31,5 +31,35 @@ describe("addTask", () => {
     assert.equal(original.length, 1);
     assert.equal(result.length, 2);
     assert.notStrictEqual(result, original);
+  });
+});
+
+describe("toggleTask", () => {
+  it("should toggle completed to true and back to false", () => {
+    const tasks = [{ id: 1, text: "Write essay", completed: false }];
+
+    const toggled = toggleTask(tasks, 1);
+    assert.equal(toggled[0].completed, true);
+
+    const toggledBack = toggleTask(toggled, 1);
+    assert.equal(toggledBack[0].completed, false);
+  });
+
+  it("should not mutate the original array and should leave other tasks unchanged", () => {
+    const tasks = [
+      { id: 1, text: "Task A", completed: false },
+      { id: 2, text: "Task B", completed: false },
+    ];
+
+    const result = toggleTask(tasks, 2);
+
+    // original unchanged
+    assert.equal(tasks[1].completed, false);
+    assert.notStrictEqual(result, tasks);
+
+    // only target task toggled
+    assert.equal(result[0].completed, false);
+    assert.equal(result[1].completed, true);
+    assert.equal(result[0].text, "Task A");
   });
 });
