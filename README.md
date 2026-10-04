@@ -38,8 +38,8 @@ This executes all test files inside `tests/` using Node's built-in test runner (
 
 ## 👥 Team Members
 
-| Name | USN | Role | GitHub |
-|------|-----|------|--------|
+| Name | USN | Role | 
+|------|-----|------|
 | Dhanush J | 1RF24IS030 | Project Lead and Lead Developer (repository setup, application, CI workflow) |
 | Dhruv Ajay Hangal | 1RF24IS031 | Project Manager (issues, milestones, project board)  |
 | Jeevan V | 1RF24IS045 | QA / Testing (unit tests, code review) |
