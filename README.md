@@ -38,11 +38,12 @@ This executes all test files inside `tests/` using Node's built-in test runner (
 
 ## 👥 Team Members
 
-| Name            | Role              | GitHub                                      |
-| --------------- | ----------------- | ------------------------------------------- |
-| Alice Johnson   | Project Lead      | [@alice-johnson](https://github.com/alice)  |
-| Bob Smith       | Frontend Developer| [@bob-smith](https://github.com/bob)        |
-| Carol Martinez  | QA / Testing      | [@carol-martinez](https://github.com/carol) |
+| Name | USN | Role | GitHub |
+|------|-----|------|--------|
+| Dhanush J | 1RF24IS030 | Project Lead and Lead Developer (repository setup, application, CI workflow) |
+| Dhruv Ajay Hangal | 1RF24IS031 | Project Manager (issues, milestones, project board) | @your-handle |
+| Jeevan V | 1RF24IS045 | QA / Testing (unit tests, code review) | @your-handle |
+| Dharshan K | 1RF24IS048 | Documentation and Presentation (README, PPT, report) | @your-handle |
 
 ## ⚙️ GitHub Workflow
 
