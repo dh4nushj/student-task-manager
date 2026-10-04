@@ -41,9 +41,9 @@ This executes all test files inside `tests/` using Node's built-in test runner (
 | Name | USN | Role | GitHub |
 |------|-----|------|--------|
 | Dhanush J | 1RF24IS030 | Project Lead and Lead Developer (repository setup, application, CI workflow) |
-| Dhruv Ajay Hangal | 1RF24IS031 | Project Manager (issues, milestones, project board) | @your-handle |
-| Jeevan V | 1RF24IS045 | QA / Testing (unit tests, code review) | @your-handle |
-| Dharshan K | 1RF24IS048 | Documentation and Presentation (README, PPT, report) | @your-handle |
+| Dhruv Ajay Hangal | 1RF24IS031 | Project Manager (issues, milestones, project board)  |
+| Jeevan V | 1RF24IS045 | QA / Testing (unit tests, code review) |
+| Dharshan K | 1RF24IS048 | Documentation and Presentation (README, PPT, report) |
 
 ## ⚙️ GitHub Workflow
 
