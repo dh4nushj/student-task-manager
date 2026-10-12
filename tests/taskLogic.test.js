@@ -32,6 +32,14 @@ describe("addTask", () => {
     assert.equal(result.length, 2);
     assert.notStrictEqual(result, original);
   });
+
+  it("should return the original tasks array unchanged if the text is an empty string", () => {
+    const original = [{ id: 1, text: "Attend lecture", completed: false }];
+    const result = addTask(original, "");
+
+    assert.equal(result.length, 1);
+    assert.strictEqual(result, original);
+  });
 });
 
 describe("toggleTask", () => {

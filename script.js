@@ -54,7 +54,9 @@
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     tasks = addTask(tasks, input.value);
-    input.value = "";
+    if (input.value !== "") {
+      input.value = "";
+    }
     input.focus();
     render();
   });

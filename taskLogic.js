@@ -10,6 +10,9 @@
  * @returns {Array}       – new array with the appended task
  */
 function addTask(tasks, text) {
+  if (text === "") {
+    return tasks;
+  }
   const id = tasks.length === 0 ? 1 : Math.max(...tasks.map((t) => t.id)) + 1;
   return [...tasks, { id, text, completed: false }];
 }
